@@ -1,0 +1,1148 @@
+/* ============================================
+   KITAPP - STYLESHEET
+   Modern ve Responsive Landing Page
+   ============================================ */
+
+/* ============================================
+   1. CSS DEĞİŞKENLERİ (Variables)
+   ============================================ */
+:root {
+    /* Renkler */
+    --primary-color: #4F46E5;
+    --primary-dark: #4338ca;
+    --secondary-color: #10b981;
+    --accent-color: #f59e0b;
+    --purple-hover: #7C3AED; 
+    
+    /* Arka Plan Renkleri */
+    --bg-body: #FFFFFF;
+    --bg-light: #F9FAFB;
+    --bg-card: #FFFFFF;
+    
+    /* Metin Renkleri */
+    --text-main: #111827;
+    --text-muted: #6B7280;
+    
+    /* Gradientler */
+    --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    --gradient-dark: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    
+    /* Gölgeler */
+    --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    
+    /* Border Radius */
+    --radius-lg: 20px;
+    
+    /* Padding Değerleri - Tutarlı Sistem */
+    --padding-container: 20px;
+    --padding-container-mobile: 15px;
+    --padding-section: 100px;
+    --padding-section-mobile: 60px;
+    --padding-card: 40px 30px;
+    --padding-card-small: 30px;
+    --padding-button: 10px 24px;
+    --padding-button-small: 5px 15px;
+    --padding-nav-link: 0;
+    --padding-nav-link-mobile: 5px 0;
+    --padding-faq: 20px 0;
+    --padding-cta: 80px 40px;
+    --padding-cta-mobile: 40px 20px;
+    --padding-footer: 40px 0;
+    --padding-modal: 40px;
+    --padding-roadmap: 50px 0;
+    --padding-roadmap-step: 50px;
+    --padding-store-btn: 10px 25px;
+    --gap-small: 15px;
+    --gap-medium: 30px;
+    --gap-large: 50px;
+}
+
+/* Karanlık Mod Değişkenleri */
+body.dark-mode {
+    --bg-body: #0f172a;
+    --bg-light: #1e293b;
+    --bg-card: #1e293b;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
+}
+
+/* ============================================
+   2. RESET & TEMEL STİLLER
+   ============================================ */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    height: 100%;
+}
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    line-height: 1.6; 
+    transition: 0.3s; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    width: 100%; 
+    max-width: 100vw; 
+    height: auto;
+    min-height: 100vh;
+}
+
+main {
+    overflow: visible;
+    height: auto;
+}
+
+a { 
+    text-decoration: none; 
+    color: inherit; 
+    transition: 0.3s; 
+}
+
+ul { 
+    list-style: none; 
+}
+
+section { 
+    scroll-margin-top: 100px; 
+    overflow: visible;
+    height: auto;
+}
+
+/* ============================================
+   3. YARDIMCI SINIFLAR (Utility Classes)
+   ============================================ */
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 var(--padding-container); 
+    overflow: visible;
+}
+
+.section-padding { 
+    padding: var(--padding-section) 0; 
+}
+
+.bg-light { 
+    background-color: var(--bg-light); 
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+/* ============================================
+   4. HEADER & NAVİGASYON
+   ============================================ */
+header { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background: rgba(255,255,255,0.95); 
+    backdrop-filter: blur(10px); 
+    z-index: 1000; 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+}
+
+body.dark-mode header { 
+    background: rgba(15,23,42,0.95); 
+    border-color: rgba(255,255,255,0.05); 
+}
+
+.header-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 80px; 
+}
+
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: var(--text-main); 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+nav ul { 
+    display: flex; 
+    gap: 30px; 
+}
+
+nav a { 
+    font-weight: 500; 
+    color: var(--text-muted); 
+    white-space: nowrap; 
+}
+
+nav a:hover { 
+    color: var(--primary-color); 
+}
+
+.header-actions { 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+}
+
+/* Tema Değiştirme Butonu */
+.theme-toggle-btn { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.2rem; 
+    color: var(--text-main); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    width: 40px; 
+    height: 40px; 
+}
+
+.theme-toggle-btn .fa-sun { 
+    display: none; 
+}
+
+body.dark-mode .theme-toggle-btn .fa-moon { 
+    display: none; 
+}
+
+body.dark-mode .theme-toggle-btn .fa-sun { 
+    display: inline-block; 
+    color: #f59e0b; 
+}
+
+/* Hamburger Menü Butonu (Gizli - Mobilde kullanılmıyor) */
+.mobile-menu-btn { 
+    display: none; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 1.5rem; 
+    color: var(--text-main); 
+    width: 40px; 
+    height: 40px; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.mobile-menu-btn .fa-times { 
+    display: none; 
+}
+
+/* ============================================
+   5. HERO SECTION
+   ============================================ */
+#hero { 
+    padding-top: 80px; 
+    min-height: 80vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+    background-color: #000; 
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.hero-image-container { 
+    position: relative; 
+    width: 100%; 
+    height: 100%; 
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.hero-img { 
+    width: 100%; 
+    max-width: 100%;
+    height: 100vh; 
+    object-fit: cover; 
+    display: block; 
+    opacity: 0.6; 
+    box-sizing: border-box;
+}
+
+.hero-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    max-width: 100%;
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    overflow: hidden;
+}
+
+.hero-content { 
+    padding: 0 var(--padding-container); 
+}
+
+.hero-content h1 { 
+    font-size: 3.5rem; 
+    color: white; 
+    margin-bottom: 20px; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+}
+
+.hero-content p { 
+    font-size: 1.5rem; 
+    color: #ddd; 
+}
+
+.gradient-text { 
+    background: linear-gradient(to right, #fff, #ccc); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+/* ============================================
+   6. BÖLÜM BAŞLIKLARI
+   ============================================ */
+.section-header { 
+    text-align: center; 
+    margin-bottom: 60px; 
+    max-width: 700px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.section-header h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
+    color: var(--text-main); 
+}
+
+.section-header p { 
+    color: var(--text-muted); 
+    font-size: 1.1rem; 
+}
+
+/* ============================================
+   7. KARTLAR & GRID SİSTEMİ
+   ============================================ */
+.grid-3 { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: var(--gap-medium); 
+    overflow: visible;
+}
+
+.problem-card, 
+.modern-card { 
+    background: var(--bg-card); 
+    padding: var(--padding-card); 
+    border-radius: var(--radius-lg); 
+    box-shadow: var(--shadow-sm); 
+    transition: all 0.4s ease; 
+    border: 1px solid rgba(0,0,0,0.05); 
+    text-align: center;
+}
+
+body.dark-mode .problem-card, 
+body.dark-mode .modern-card { 
+    border-color: rgba(255,255,255,0.05); 
+}
+
+.problem-card:hover { 
+    transform: scale(1.05); 
+    box-shadow: var(--shadow-lg); 
+    z-index: 1; 
+}
+
+/* İkon Kutuları */
+.icon-box { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 16px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.5rem; 
+    margin: 0 auto 20px; 
+}
+
+.soft-blue { background: #e0e7ff; color: #4f46e5; }
+.soft-green { background: #dcfce7; color: #10b981; }
+.soft-purple { background: #f3e8ff; color: #7c3aed; }
+.soft-red { background: #fee2e2; color: #ef4444; }
+.soft-orange { background: #ffedd5; color: #f97316; }
+.soft-cyan { background: #cffafe; color: #06b6d4; }
+
+/* ============================================
+   8. YOL HARİTASI (ROADMAP)
+   ============================================ */
+#roadmap { 
+    background-color: var(--bg-light); 
+    position: relative; 
+}
+
+.roadmap-wrapper { 
+    position: relative; 
+    max-width: 900px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+
+.roadmap-line { 
+    position: absolute; 
+    left: 50%; 
+    top: 0; 
+    bottom: 0; 
+    width: 4px; 
+    background: #e5e7eb; 
+    transform: translateX(-50%); 
+    z-index: 0; 
+}
+
+.roadmap-progress { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 0%; 
+    background: var(--primary-color); 
+    transition: height 0.2s ease-out; 
+}
+
+.roadmap-steps { 
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--gap-large); 
+    position: relative; 
+    z-index: 1; 
+    padding: var(--padding-roadmap); 
+}
+
+.roadmap-step { 
+    width: 50%; 
+    position: relative; 
+    box-sizing: border-box; 
+}
+
+.roadmap-step:nth-child(odd) { 
+    align-self: flex-start; 
+    text-align: right; 
+    padding-right: var(--padding-roadmap-step); 
+}
+
+.roadmap-step:nth-child(even) { 
+    align-self: flex-end; 
+    text-align: left; 
+    padding-left: var(--padding-roadmap-step); 
+}
+
+.step-card { 
+    background: var(--bg-card); 
+    padding: var(--padding-card-small); 
+    padding-top: 50px; 
+    border-radius: var(--radius-lg); 
+    box-shadow: var(--shadow-md); 
+    border: 1px solid rgba(0,0,0,0.05); 
+    transition: all 0.4s ease; 
+    transform: scale(1); 
+    position: relative; 
+}
+
+body.dark-mode .step-card { 
+    border-color: rgba(255,255,255,0.05); 
+}
+
+.step-card.active { 
+    transform: scale(1.1); 
+    border-color: var(--primary-color); 
+    box-shadow: 0 15px 30px rgba(79, 70, 229, 0.15); 
+    z-index: 10; 
+}
+
+.step-card::after { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    width: 20px; 
+    height: 20px; 
+    background: var(--bg-card); 
+    border: 4px solid #e5e7eb; 
+    border-radius: 50%; 
+    transform: translateY(-50%); 
+    z-index: 2; 
+    transition: 0.3s; 
+}
+
+.roadmap-step:nth-child(odd) .step-card::after { 
+    right: -60px; 
+}
+
+.roadmap-step:nth-child(even) .step-card::after { 
+    left: -60px; 
+}
+
+.step-card.active::after { 
+    border-color: var(--primary-color); 
+    background: var(--primary-color); 
+}
+
+.step-icon { 
+    font-size: 2rem; 
+    color: var(--primary-color); 
+    margin-bottom: 15px; 
+    text-align: left; 
+    display: block;
+}
+
+.step-number { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: rgba(0,0,0,0.05); 
+    position: absolute; 
+    top: 10px; 
+    right: 20px; 
+    z-index: 1;
+}
+
+/* ============================================
+   9. ÖZELLİKLER & HAKKIMIZDA KARTLARI
+   ============================================ */
+.info-card { 
+    background: var(--bg-card); 
+    padding: var(--padding-card); 
+    border-radius: var(--radius-lg); 
+    box-shadow: var(--shadow-sm); 
+    text-align: center; 
+    border: 1px solid rgba(0,0,0,0.05); 
+    transition: all 0.4s ease; 
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+body.dark-mode .info-card { 
+    border-color: rgba(255,255,255,0.05); 
+}
+
+.info-card:hover { 
+    transform: scale(1.05); 
+    box-shadow: var(--shadow-lg); 
+    z-index: 2; 
+}
+
+.info-card h3 { 
+    font-size: 1.5rem; 
+    margin-bottom: 15px; 
+    color: var(--text-main); 
+}
+
+.info-card p { 
+    color: var(--text-muted); 
+    font-size: 1rem; 
+    line-height: 1.6; 
+}
+
+.info-icon { 
+    width: 70px; 
+    height: 70px; 
+    background: var(--bg-light); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.8rem; 
+    color: var(--primary-color); 
+    margin-bottom: 25px; 
+    transition: 0.3s; 
+}
+
+.info-icon.color-purple { color: #7C3AED; background: #f3e8ff; }
+.info-icon.color-blue { color: #2563eb; background: #dbeafe; }
+.info-icon.color-orange { color: #ea580c; background: #ffedd5; }
+
+body.dark-mode .info-icon { 
+    background: rgba(255,255,255,0.05); 
+}
+
+/* ============================================
+   10. OYUNLAŞTIRMA KARTLARI
+   ============================================ */
+.feature-card { 
+    background: var(--bg-card); 
+    padding: var(--padding-card); 
+    border-radius: var(--radius-lg); 
+    text-align: center; 
+    box-shadow: var(--shadow-md); 
+    transition: all 0.3s ease; 
+    border: 1px solid rgba(0,0,0,0.05); 
+    cursor: default; 
+}
+
+.feature-card:hover { 
+    transform: translateY(-5px); 
+    background-color: var(--purple-hover); 
+    border-color: var(--purple-hover); 
+}
+
+.feature-card:hover h3, 
+.feature-card:hover .feature-icon { 
+    color: #ffffff; 
+}
+
+.feature-card:hover p { 
+    color: rgba(255,255,255, 0.9); 
+}
+
+.feature-card.highlight { 
+    background: var(--gradient-dark); 
+    color: white; 
+}
+
+.feature-card.highlight p { 
+    color: rgba(255,255,255,0.8); 
+}
+
+.feature-icon { 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    transition: 0.3s; 
+}
+
+/* ============================================
+   11. PAKETLER (PRICING)
+   ============================================ */
+.pricing-wrapper { 
+    display: flex; 
+    justify-content: center; 
+    gap: var(--gap-medium); 
+    flex-wrap: wrap; 
+    overflow: visible;
+}
+
+.pricing-card { 
+    background: var(--bg-card); 
+    padding: var(--padding-card); 
+    border-radius: var(--radius-lg); 
+    box-shadow: var(--shadow-md); 
+    width: 100%; 
+    max-width: 400px; 
+    text-align: center; 
+    border: 1px solid rgba(0,0,0,0.05); 
+    transition: all 0.3s ease; 
+}
+
+.pricing-card:hover { 
+    transform: scale(1.05); 
+    box-shadow: var(--shadow-lg); 
+    z-index: 2; 
+}
+
+.pricing-card.popular { 
+    border: 2px solid var(--primary-color); 
+    transform: scale(1.05); 
+    z-index: 1;
+}
+
+.pricing-card.popular:hover { 
+    transform: scale(1.08); 
+    z-index: 2;
+}
+
+.popular-badge { 
+    background: var(--primary-color); 
+    color: white; 
+    padding: var(--padding-button-small); 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    display: inline-block; 
+    margin-bottom: 15px; 
+}
+
+.features-list { 
+    text-align: left; 
+    margin: 30px 0; 
+}
+
+.features-list li { 
+    margin-bottom: 15px; 
+    color: var(--text-muted); 
+}
+
+.features-list i { 
+    color: var(--secondary-color); 
+    margin-right: var(--gap-small); 
+}
+
+.video-placeholder img { 
+    width: 100%; 
+    border-radius: 10px; 
+    margin-bottom: 20px; 
+}
+
+/* Butonlar */
+.btn-outline { 
+    border: 2px solid var(--primary-color); 
+    color: var(--primary-color); 
+    padding: var(--padding-button); 
+    border-radius: 50px; 
+    display: inline-block; 
+    font-weight: 600; 
+}
+
+.btn-outline:hover { 
+    background: var(--primary-color); 
+    color: white; 
+}
+
+.btn-primary { 
+    background: var(--gradient-primary); 
+    color: white; 
+    padding: var(--padding-button); 
+    border-radius: 50px; 
+    font-weight: 600; 
+}
+
+.btn-primary:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4); 
+}
+
+.full-width { 
+    width: 100%; 
+    display: block; 
+    text-align: center; 
+}
+
+/* ============================================
+   12. S.S.S. (FAQ) & CTA
+   ============================================ */
+.faq-wrapper { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    overflow: visible;
+}
+
+.faq-item { 
+    margin-bottom: 15px; 
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+}
+
+body.dark-mode .faq-item { 
+    border-color: rgba(255,255,255,0.1); 
+}
+
+.faq-question { 
+    width: 100%; 
+    text-align: left; 
+    background: none; 
+    border: none; 
+    padding: var(--padding-faq); 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    color: var(--text-main); 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.faq-answer { 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: 0.3s ease; 
+    color: var(--text-muted); 
+}
+
+.faq-answer p { 
+    padding-bottom: var(--gap-small); 
+}
+
+.faq-question.active i { 
+    transform: rotate(180deg); 
+}
+
+.cta-box { 
+    background: var(--gradient-primary); 
+    border-radius: var(--radius-lg); 
+    padding: var(--padding-cta); 
+    text-align: center; 
+    color: white; 
+    overflow: visible;
+}
+
+.cta-box h2 { 
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+}
+
+.store-buttons { 
+    display: flex; 
+    justify-content: center; 
+    gap: var(--gap-small); 
+    margin-top: 40px; 
+}
+
+.store-btn { 
+    background: black; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: var(--padding-store-btn); 
+    border-radius: 10px; 
+    transition: 0.3s; 
+}
+
+.store-btn:hover { 
+    transform: translateY(-5px); 
+}
+
+.store-btn i { 
+    font-size: 2rem; 
+}
+
+.store-btn span { 
+    font-weight: 600; 
+}
+
+/* ============================================
+   13. FOOTER
+   ============================================ */
+footer { 
+    background: var(--bg-light); 
+    padding: var(--padding-footer); 
+    text-align: center; 
+    margin-top: 80px; 
+    color: var(--text-muted); 
+}
+
+/* ============================================
+   14. MODAL (POP-UP)
+   ============================================ */
+.modal-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    z-index: 2000; 
+    display: none; 
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; 
+    transition: 0.3s; 
+}
+
+.modal-overlay.active { 
+    display: flex; 
+    opacity: 1; 
+}
+
+.modal-content { 
+    background: var(--bg-card); 
+    padding: var(--padding-modal); 
+    border-radius: var(--radius-lg); 
+    max-width: 500px; 
+    width: 90%; 
+    position: relative; 
+    transform: translateY(20px); 
+    transition: 0.3s; 
+}
+
+.modal-overlay.active .modal-content { 
+    transform: translateY(0); 
+}
+
+.modal-close { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: var(--text-muted); 
+}
+
+/* ============================================
+   15. ANİMASYONLAR
+   ============================================ */
+.fade-in-section { 
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: 0.6s ease-out; 
+}
+
+.fade-in-section.is-visible { 
+    opacity: 1; 
+    transform: none; 
+}
+
+/* ============================================
+   16. RESPONSIVE (MOBİL AYARLARI)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Header Mobil */
+    .header-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        padding: var(--padding-container-mobile);
+        align-items: center;
+        gap: 0;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+        flex: 1;
+        min-width: 0;
+        order: 1;
+    }
+    
+    .header-actions {
+        position: static;
+        margin-left: auto;
+        order: 2;
+        flex-shrink: 0;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
+        flex-basis: 100%;
+        margin-top: var(--gap-small);
+        margin-left: calc(-1 * var(--padding-container-mobile));
+        margin-right: calc(-1 * var(--padding-container-mobile));
+        padding-left: var(--padding-container-mobile);
+        padding-right: 0;
+        max-height: none;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--gap-small);
+        justify-content: space-between;
+        width: 100%;
+        max-width: 100%;
+        list-style: none;
+    }
+    
+    nav li {
+        border-bottom: none;
+        list-style: none;
+        flex-shrink: 0;
+    }
+    
+    nav a {
+        font-size: 0.85rem;
+        padding: var(--padding-nav-link-mobile);
+        display: inline-block;
+        text-align: left;
+        white-space: nowrap;
+    }
+    
+    /* Hero Mobil */
+    #hero {
+        min-height: auto;
+        height: auto;
+        padding-top: 120px;
+        padding-bottom: 40px;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        position: relative;
+        height: auto;
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-img {
+        height: auto;
+        max-height: 60vh;
+        object-position: center center;
+        width: 100%;
+        max-width: 100vw;
+        min-width: 0;
+        object-fit: contain;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        padding: 0 var(--padding-container-mobile);
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem; 
+        line-height: 1.3;
+        word-wrap: break-word;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .hero-overlay {
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    
+    /* Grid Mobil */
+    .grid-3, 
+    .grid-2 { 
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Roadmap Mobil */
+    .roadmap-line { 
+        left: 20px; 
+    }
+    
+    .roadmap-step { 
+        width: 100%; 
+        flex-direction: column; 
+        align-items: flex-start; 
+        padding-left: var(--padding-roadmap-step); 
+        padding-right: var(--padding-roadmap-step); 
+        margin-bottom: 40px; 
+    }
+    
+    .roadmap-step:nth-child(odd), 
+    .roadmap-step:nth-child(even) { 
+        text-align: left; 
+        align-self: flex-start; 
+    }
+    
+    .step-card { 
+        width: 100%; 
+    }
+    
+    .step-card::after { 
+        left: -29px !important; 
+    } 
+    
+    /* CTA Mobil */
+    .cta-box { 
+        padding: var(--padding-cta-mobile); 
+    }
+    
+    .cta-box h2 { 
+        font-size: 2rem; 
+    }
+    
+    .store-buttons { 
+        flex-direction: column; 
+    }
+    
+    .store-btn { 
+        justify-content: center; 
+    }
+    
+    /* Genel Mobil Ayarları */
+    .section-padding { 
+        padding: var(--padding-section-mobile) 0; 
+    }
+    
+    .section-header h2 { 
+        font-size: 2rem; 
+    }
+    
+    .container { 
+        padding: 0 var(--padding-container-mobile); 
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+    
+    #problems .container {
+        overflow: visible;
+    }
+    
+    /* Tüm Section'lar - İç Scroll Yok */
+    section { 
+        scroll-margin-top: 140px; 
+        overflow: visible !important;
+        height: auto;
+        max-height: none;
+    }
+    
+    /* Tüm Container'lar - İç Scroll Yok */
+    .container {
+        overflow: visible !important;
+        max-height: none;
+    }
+    
+    /* Tüm Grid'ler - İç Scroll Yok */
+    .grid-3,
+    .grid-2 {
+        overflow: visible !important;
+    }
+    
+    /* Tüm Wrapper'lar - İç Scroll Yok */
+    .roadmap-wrapper,
+    .faq-wrapper,
+    .pricing-wrapper,
+    .cta-box {
+        overflow: visible !important;
+    }
+    
+    /* Özel Section'lar */
+    #problems,
+    #pricing,
+    #roadmap,
+    #features-section,
+    #about-section,
+    #gamification,
+    #faq,
+    #cta {
+        overflow: visible !important;
+        height: auto;
+    }
+    
+    /* Mobilde scale değerlerini azalt */
+    .pricing-card.popular {
+        transform: scale(1.02);
+    }
+    
+    .pricing-card.popular:hover {
+        transform: scale(1.05);
+    }
+    
+    .pricing-card:hover {
+        transform: scale(1.02);
+    }
+}
