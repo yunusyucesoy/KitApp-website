@@ -728,7 +728,83 @@ body.dark-mode .info-icon {
 }
 
 /* ============================================
-   12. S.S.S. (FAQ) & CTA
+   12. PRIVACY POLICY
+   ============================================ */
+.privacy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    padding: var(--padding-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: left;
+    line-height: 1.8;
+}
+
+body.dark-mode .privacy-content {
+    border-color: rgba(255,255,255,0.05);
+}
+
+.privacy-content h3 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.privacy-content h3:first-of-type {
+    margin-top: 0;
+}
+
+.privacy-content h4 {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.privacy-content p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.privacy-content ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+
+.privacy-content ul ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.privacy-content li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+
+.privacy-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.privacy-content a:hover {
+    color: var(--primary-dark);
+}
+
+.privacy-content strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* ============================================
+   13. S.S.S. (FAQ) & CTA
    ============================================ */
 .faq-wrapper { 
     max-width: 800px; 
@@ -819,7 +895,7 @@ body.dark-mode .faq-item {
 }
 
 /* ============================================
-   13. FOOTER
+   14. FOOTER
    ============================================ */
 footer { 
     background: var(--bg-light); 
@@ -830,7 +906,7 @@ footer {
 }
 
 /* ============================================
-   14. MODAL (POP-UP)
+   15. MODAL (POP-UP)
    ============================================ */
 .modal-overlay { 
     position: fixed; 
@@ -879,7 +955,7 @@ footer {
 }
 
 /* ============================================
-   15. ANİMASYONLAR
+   16. ANİMASYONLAR
    ============================================ */
 .fade-in-section { 
     opacity: 0; 
@@ -893,7 +969,7 @@ footer {
 }
 
 /* ============================================
-   16. RESPONSIVE (MOBİL AYARLARI)
+   17. RESPONSIVE (MOBİL AYARLARI)
    ============================================ */
 @media (max-width: 768px) {
     /* Header Mobil */
@@ -1128,9 +1204,30 @@ footer {
     #about-section,
     #gamification,
     #faq,
-    #cta {
+    #cta,
+    #privacy-policy {
         overflow: visible !important;
         height: auto;
+    }
+    
+    /* Privacy Policy Mobil */
+    .privacy-content {
+        padding: var(--padding-container-mobile);
+    }
+    
+    .privacy-content h3 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+    
+    .privacy-content h4 {
+        font-size: 1.2rem;
+        margin-top: 25px;
+    }
+    
+    .privacy-content p,
+    .privacy-content li {
+        font-size: 0.95rem;
     }
     
     /* Mobilde scale değerlerini azalt */
