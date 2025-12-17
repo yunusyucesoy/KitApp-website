@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Silme | KitApp</title>
+    <link rel="stylesheet" href="style.css?v=8">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                KitApp
+            </a>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padding bg-light" style="min-height: 80vh; display: flex; align-items: center;">
+            <div class="container">
+                <div class="delete-account-card">
+                    <div id="deletion-form-container">
+                        <div class="icon-box soft-red" style="width: 80px; height: 80px; margin-bottom: 30px;">
+                            <i class="fas fa-user-slash" style="font-size: 2rem;"></i>
+                        </div>
+                        <h2>Hesap Silme</h2>
+                        <p class="warning-text">
+                            <strong>DİKKAT:</strong> Hesabınızı silmek kalıcı bir işlemdir.
+                            Tüm verileriniz, çözdüğünüz sorular ve istatistikleriniz geri döndürülemez şekilde
+                            silinecektir.
+                        </p>
+
+                        <form id="delete-account-form">
+                            <div class="form-group">
+                                <label for="identifier">Kullanıcı Adı veya E-posta</label>
+                                <input type="text" id="identifier" name="identifier" required
+                                    placeholder="Kullanıcı adınız veya e-posta adresiniz">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Şifre</label>
+                                <input type="password" id="password" name="password" required placeholder="Şifreniz">
+                            </div>
+
+                            <button type="submit" class="btn-primary full-width danger-btn">
+                                <i class="fas fa-trash-alt"></i> Hesabımı Kalıcı Olarak Sil
+                            </button>
+                        </form>
+                        <div id="status-message" class="status-message"></div>
+                    </div>
+
+                    <div id="success-container" style="display: none; text-align: center;">
+                        <div class="icon-box soft-green" style="width: 80px; height: 80px; margin-bottom: 30px;">
+                            <i class="fas fa-check-circle" style="font-size: 2rem;"></i>
+                        </div>
+                        <h2>Hesabınız Başarıyla Silindi</h2>
+                        <p>KitApp hesabınız ve tüm verileriniz sistemimizden kaldırılmıştır.</p>
+                        <a href="index.html" class="btn-outline" style="margin-top: 20px;">Ana Sayfaya Dön</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 KitApp. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="confirm-modal-overlay">
+        <div class="confirm-modal">
+            <div class="icon-box soft-red" style="margin-bottom: 20px;">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3>Emin misiniz?</h3>
+            <p style="margin-bottom: 20px; color: var(--text-muted);">
+                Bu işlem geri alınamaz. Hesabınız ve tüm verileriniz kalıcı olarak silinecektir.
+            </p>
+            <div class="confirm-actions">
+                <button id="cancel-delete" class="btn-outline"
+                    style="border-radius: 10px; padding: 10px 20px;">Vazgeç</button>
+                <button id="confirm-delete" class="danger-btn btn-primary"
+                    style="border-radius: 10px; padding: 10px 20px;">Evet, Sil</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="delete-account.js"></script>
+    <script>
+        // Basit tema yönetimi (script.js'den bağımsız çalışabilmesi için)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
